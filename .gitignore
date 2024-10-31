@@ -1,0 +1,8 @@
+__pycache__
+Lib
+Include
+Scripts
+restapi/__pycache__
+schemas/__pycache__
+routers/__pycache__
+pyvenv.cfg
