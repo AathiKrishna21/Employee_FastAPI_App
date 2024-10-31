@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException
 from schemas import user_schema
-from restapi.db import MongoDB
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from datetime import timedelta
@@ -10,11 +9,12 @@ router = APIRouter(
     prefix="/api/users",
     tags=["User"]
 )
-db = MongoDB.get_db()
 
 
 @router.get("/me")
-async def read_users_me(current_user: dict = Depends(authentication.get_current_active_user)):
+async def read_users_me(
+    current_user: dict = Depends(authentication.get_current_active_user)
+    ):
     if "password" in current_user:
         del current_user["password"]
     if "hashed_password" in current_user:
@@ -23,7 +23,10 @@ async def read_users_me(current_user: dict = Depends(authentication.get_current_
 
 
 @router.post("/register/")
-async def register(user: user_schema.User):
+async def register(
+    user: user_schema.User,
+    current_user: dict = Depends(authentication.get_current_admin_user)
+    ):
     if user_schema.get_user(user.uname):
         raise HTTPException(status_code=400, detail="Username already Taken! try different name.")
     user_schema.create_user(user)

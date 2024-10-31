@@ -3,3 +3,5 @@ python-jose
 fastapi
 uvicorn
 passlib
+pytest
+mongomock
