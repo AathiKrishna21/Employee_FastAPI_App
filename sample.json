@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "aathi",
+        "email": "aathi@abc.com",
+        "department": "Sales",
+        "role": "Analyst",
+        "date_joined": "2023-10-28T14:30:00Z"
+    },
+    {
+        "id": 2,
+        "name": "krishna",
+        "email": "krishna@uvw.com",
+        "department": "HR",
+        "role": "Manager",
+        "date_joined": "2023-10-28T14:30:00Z"
+    },
+    {
+        "id": 3,
+        "name": "kumar",
+        "email": "kumar@abc.com",
+        "department": "Engineering",
+        "role": "Developer",
+        "date_joined": "2023-10-28T14:30:00Z"
+    }
+]
